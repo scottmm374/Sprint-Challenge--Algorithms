@@ -34,7 +34,8 @@ Suppose that you have an n-story building and plenty of eggs. Suppose also that 
 
 Write out your proposed algorithm in plain English or pseudocode AND give the runtime complexity of your solution.
 
-create a function that takes the number of stories as a paramter
+create a function that takes the number of stories as a parameter
+
 def broken_eggs(num_of_stories):
 
 start at first floor, drop and egg and see if it breaks:
