@@ -37,6 +37,12 @@ Write out your proposed algorithm in plain English or pseudocode AND give the ru
 create a function that takes the number of stories as a paramter
 def broken_eggs(num_of_stories):
 
+start at first floor, drop and egg and see if it breaks:
+if egg != broken:
+start + 1 (move up a floor)
+if egg broken:
+start - 1, and return current floor
+
       to save time divide stories in half to start:
         start =  num_of_stories / 2
         if egg dropped

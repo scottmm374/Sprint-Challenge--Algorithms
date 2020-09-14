@@ -99,7 +99,8 @@ class SortingRobot:
         Sort the robot's list.
         """
         while self._position <= (len(self._list) - 1):
-            self.swap_item()
+            # How to even pick up the first item!
+
             self.can_move_right()
             if True:
                 self.move_right()
@@ -110,10 +111,18 @@ class SortingRobot:
                     self.can_move_right()
                     if True:
                         self.move_right()
+                    else:
+                        return None
                 if self._item == 0:
                     self.can_move_right()
                     if True:
                         self.move_right()
+                    else:
+                        return None
+            else:
+                return None
+
+        return sort()
 
 
 if __name__ == "__main__":
