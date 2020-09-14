@@ -6,9 +6,9 @@ Your function must utilize recursion. It cannot contain any loops.
 
 
 def count_th(word):
+    i = 0
+    while i > len(word) - 1:
 
-    while len(word) > len(word) - 1:
-        i = 0
         count = 0
         if i == "t" and i + 1 == 'h':
             count += 1
