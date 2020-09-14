@@ -6,17 +6,16 @@ Your function must utilize recursion. It cannot contain any loops.
 
 
 def count_th(word):
-    i = 0
-    while i > len(word) - 1:
 
-        count = 0
-        if i == "t" and i + 1 == 'h':
-            count += 1
-            i = i + 1
+    # base case if its less then two then its not possible to have th
+    if len(word) < 2:
+        return 0
 
-        count_th(word)
-    print(count)
-    return count
+    # if first two letters is "th", recurse while adding 1 to the count
+    elif word[0:2] == "th":
+        return 1 + count_th(word[1:])
+    else:
+        return count_th(word[1:])
 
 
-count_th('Thesgth')
+print(count_th("abcthefthghith"))
