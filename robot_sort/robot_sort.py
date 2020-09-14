@@ -98,79 +98,88 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
+        # Psuedo code below
+        # while (len(self._position) -1) light_is_on() is False:
 
-            """
-            PSUEDO CODE------------------------->
-                while light is Not on at index -1:
-                    pick up card()
-                    set light on()
-                    check right()
-                        if true, move right()
-                            compare items()
+        # pick up first card
+        self._item = self._item[self._position]
 
+        self.set_light_on()
+        self.can_move_right()
 
-                            if item in hand is smaller:
-                                while item(in hand) is smaller  or equal then item on table and check right is true:
-                                        check right():
-                                        if true:
-                                            move Right()
+           if True:
+                self.move_right()
+                self.compare_item()
+                   if None:
+                        return None
+                    if -1 and or 0:
+                        return sort()
+                    else:
+                        self.swap_item()
+                        return self.sort()
 
-                                        else:
-                                            we are at the end of the table,
-                                            check left()
-                                                if true:
-                                                    move left one spot
-                                                        check if light is on:
-                                                            if not on:
-                                                                continue left
-                                                            if light on():
-                                                                drop card()
-                                                                move one space to the right()
-                                                                repeat sort()
-
-                            else: if card is larger in hand:
-                                swap items ()
-                                    check move right()
-                                        if yes, move right:
-                                    if false:
-                                        we are at the end of the table,
-                                        check left()
-                                                if true:
-                                                    move left () one spot
-                                                        check if light is on:
-                                                            if not on:
-                                                                continue left
-                                                            if light on():
-                                                                drop card()
-                                                                move one space to the right()
-                                                                repeat sort()
+            else:
+                self.can_move_left()
+                   if True:
+                        self.move_left()
+                        self.light_is_on()
+            #  we are at the unsorted beginning, drop card and turn off light and move one space
+                           if True:
+                                self._item[self.position] = self._item
+                                self.set_light_off()
+                                self.move_right()
+                                return self.sort()
+                    return self.can_move_left()
 
 
 """
+        PSUEDO CODE------------------------->
+            while light is Not on at index -1:
+                pick up card()
+                set light on()
+                check right()
+                    if true, move right()
+                        compare items()
 
-             self._item = self._list[self._position]
-              self.can_move_right()
-               if True:
-                    self.move_right()
-                    self.compare_item()
-                    if self._item == -1:
-                        self.swap_item()
-                    if self._item == 1:
-                        self.can_move_right()
-                        if True:
-                            self.move_right()
-                        else:
-                            return None
-                    if self._item == 0:
-                        self.can_move_right()
-                        if True:
-                            self.move_right()
-                        else:
-                            return None
-                else:
-                    return None
 
-        return sort()
+                        if item in hand is smaller:
+                            while item(in hand) is smaller  or equal then item on table and check right is true:
+                                    check right():
+                                    if true:
+                                        move Right()
+
+                                    else:
+                                        we are at the end of the table,
+                                        check left()
+                                            if true:
+                                                move left one spot
+                                                    check if light is on:
+                                                        if not on:
+                                                            continue left
+                                                        if light on():
+                                                            drop card()
+                                                            move one space to the right()
+                                                            repeat sort()
+
+                        else: if card is larger in hand:
+                            swap items ()
+                                check move right()
+                                    if yes, move right:
+                                if false:
+                                    we are at the end of the table,
+                                    check left()
+                                            if true:
+                                                move left () one spot
+                                                    check if light is on:
+                                                        if not on:
+                                                            continue left
+                                                        if light on():
+                                                            drop card()
+                                                            move one space to the right()
+                                                            repeat sort()
+
+
+"""
 
 
 if __name__ == "__main__":
