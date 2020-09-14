@@ -36,18 +36,36 @@ Write out your proposed algorithm in plain English or pseudocode AND give the ru
 
 create a function that takes the number of stories as a parameter
 
+linear slow approach
+
 def broken_eggs(num_of_stories):
 
-start at first floor, drop and egg and see if it breaks:
+start at first floor
+drop egg
 if egg != broken:
 start + 1 (move up a floor)
 if egg broken:
-start - 1, and return current floor
+start - 1  
+ return current floor
 
-      to save time divide stories in half to start:
-        start =  num_of_stories / 2
-        if egg dropped
-        while egg dropped == broken:
-              start - 1
+<!-- binary approach:
 
-        return start
+bottom_floor = 0
+top_floor = num_of_stories
+
+def broken_eggs(num_of_stories, top_floor, bottom_floor, unbroken_egg):
+
+  if num_of_stories == 0:
+      return -1
+
+  middle_floor = (top_floor + bottom_floor) // 2
+
+    start at middle_floor
+      drop unbroken_egg
+      if egg not broken:
+        top_floor == middle_floor
+        return broken_eggs(num_of_stories, top_floor, bottome_floor, eggs)
+
+      if egg Broken:
+        bottom_floor == middle_floor
+        return broken_eggs(num_of_stories, top_floor, bottome_floor, eggs) -->

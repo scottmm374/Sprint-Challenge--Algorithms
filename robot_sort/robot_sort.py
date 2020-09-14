@@ -100,6 +100,7 @@ class SortingRobot:
         """
 
             """
+            PSUEDO CODE------------------------->
                 while light is Not on at index -1:
                     pick up card()
                     set light on()
