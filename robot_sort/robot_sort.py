@@ -100,98 +100,51 @@ class SortingRobot:
         """
 
             """
-            while light on is not last item on table:
-
-                pick up card()
-                 set light on()
-
+                while light is Not on at index -1:
+                    pick up card()
+                    set light on()
                     check right()
                         if true, move right()
                             compare items()
-                                if item(in hand) is smaller the table:
-                                    check right():
-                                        move Right()
-                            check right()
-                                if true:
-                                    move right()
-                                if false: we are at the end of the table:
-                                    Move left until light on():
-                                        when light on:
-                                            drop card()
-                                            turn light off.
-                                            move one space right
-                                            repeat everything.
 
-                        else: if card is larger or equal in hand:
+
+                            if item in hand is smaller:
+                                while item(in hand) is smaller  or equal then item on table and check right is true:
+                                        check right():
+                                        if true:
+                                            move Right()
+
+                                        else:
+                                            we are at the end of the table,
+                                            check left()
+                                                if true:
+                                                    move left one spot
+                                                        check if light is on:
+                                                            if not on:
+                                                                continue left
+                                                            if light on():
+                                                                drop card()
+                                                                move one space to the right()
+                                                                repeat sort()
+
+                            else: if card is larger in hand:
                                 swap items ()
                                     check move right()
                                         if yes, move right:
+                                    if false:
+                                        we are at the end of the table,
+                                        check left()
+                                                if true:
+                                                    move left () one spot
+                                                        check if light is on:
+                                                            if not on:
+                                                                continue left
+                                                            if light on():
+                                                                drop card()
+                                                                move one space to the right()
+                                                                repeat sort()
 
 
-                                continue until end of table.
-
-
-                                check left()
-                                    move left()
-                                        check if light is on:
-                                            if false, continue left until light is on.
-                                                light is on True:
-                                                drop card:
-                                                turn off light:
-                                                    move one spot right
-                                                        turn on light()
-                                                        pick up card()
-                                                    repeat until light is on at index -1
-
-
-
-             """
-
-             """  Redoing logic in this version
-             while there are still items on the table, continue:
-             look to see if you can move right:
-                 if you can:
-                      Move right
-                      look at the item in front of you and compare it to what you are holding:
-                        if item in hand is equal to item on table:
-                            turn on light to indicated sorted side.
-                            look to see if you can move right:
-                                if you can move right.
-                                repeat sort()
-
-                        if the item in your hand is smaller:
-                            swap it with the item on the table
-                                check if you can move left:
-                                    if True, Move left:
-                                        check if light is on:
-                                            turn off light:
-                                                check right
-                                                    move right
-                                                        turn on light
-
-
-                            turn on light to indicate (sorted) side, at position item is placed on table.
-                            check if you can go left:
-                                if true:
-                                    compare item in hand to item on table:
-                                    if the item in your hand is smaller:
-                                        swap it with the item on the table
-                                            turn on light to indicate (sorted) side, at position item is placed on table.
-                                if false:
-                                    repeat process.
-
-                 else:
-                     you are at the end of the table
-
-                 if the item in your hand is smaller:
-                      swap it with the item on the table
-
-                 if item in hand is larger:
-                      check to see if you can move right:
-                         if you can move right:
-                              move right
-                              compare item in hand to item on table:
-                         else, you are at the end of the table.
 """
 
              self._item = self._list[self._position]
