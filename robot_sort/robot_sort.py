@@ -99,42 +99,37 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Psuedo code below
-        # while (len(self._position) -1) light_is_on() is False:
 
-        # pick up first card
-        self._item = self._item[self._position]
-
+        # use as base case to stop sort
         self.set_light_on()
-        self.can_move_right()
 
-           if True:
-                self.move_right()
-                self.compare_item()
-                   if None:
-                        return None
-                    if -1 and or 0:
-                        return sort()
-                    else:
-                        self.swap_item()
-                        return self.sort()
+        # pick up first item on table
+        self.swap_item()
+
+        while self.light_is_on():
+
+            while self.move_right():
+
+                if self.compare_item() == 1:
+                    self.swap_item()
+
+            if self.can_move_right() == False and self.compare_item() == None:
+                self.swap_item()
+                self.set_light_off()
 
             else:
-                self.can_move_left()
-                   if True:
-                        self.move_left()
-                        self.light_is_on()
-            #  we are at the unsorted beginning, drop card and turn off light and move one space
-                           if True:
-                                self._item[self.position] = self._item
-                                self.set_light_off()
-                                self.move_right()
-                                return self.sort()
-                    return self.can_move_left()
+                while self.move_left():
+                    if self.compare_item() == None:
+                        self.swap_item()
+                        self.move_right()
+                        self.swap_item()
+                        break
 
 
 """
         PSUEDO CODE------------------------->
-            while light is Not on at index -1:
+            Created a stopper, based on light?
+
                 pick up card()
                 set light on()
                 check right()
@@ -143,7 +138,7 @@ class SortingRobot:
 
 
                         if item in hand is smaller:
-                            while item(in hand) is smaller  or equal then item on table and check right is true:
+                            while item(in hand) is larger then item on table and check right is true:
                                     check right():
                                     if true:
                                         move Right()
