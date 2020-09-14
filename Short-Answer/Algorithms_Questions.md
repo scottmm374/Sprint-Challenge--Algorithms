@@ -36,7 +36,7 @@ Write out your proposed algorithm in plain English or pseudocode AND give the ru
 
 create a function that takes the number of stories as a parameter
 
-linear slow approach
+linear approach Time Complexity O(n)- worst case every floor is visited once.
 
 def broken_eggs(num_of_stories):
 
@@ -48,7 +48,7 @@ if egg broken:
 start - 1  
  return current floor
 
-<!-- binary approach:
+<!-- binary approach:  NOT FINISHED... BROKEN EGGS ARE CONFUSING.
 
 bottom_floor = 0
 top_floor = num_of_stories
