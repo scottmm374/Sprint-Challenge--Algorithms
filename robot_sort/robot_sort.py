@@ -81,11 +81,13 @@ class SortingRobot:
         Turn on the robot's light
         """
         self._light = "ON"
+
     def set_light_off(self):
         """
         Turn off the robot's light
         """
         self._light = "OFF"
+
     def light_is_on(self):
         """
         Returns True if the robot's light is on and False otherwise.
@@ -95,16 +97,96 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
+
+        Used selection, worst case I think is O(n^2)
         """
-        # Fill this out
-        pass
+        # Psuedo code below
+
+        # use as base case to stop sort
+        self.set_light_on()
+
+        # pick up first item on table
+        self.swap_item()
+
+        while self.light_is_on():
+
+            while self.move_right():
+                # if item on table is smaller, swap with whats in hand and continue
+                if self.compare_item() == 1:
+                    self.swap_item()
+            # at the end of the list and Nothing left to compare.
+            if self.can_move_right() == False and self.compare_item() == None:
+                self.swap_item()
+                # activates base case for while loop
+                self.set_light_off()
+            # Take smallest item and move to the left (empty slot)
+            else:
+                while self.move_left():
+                    # empty slot, put smallest item when we reach none.
+                    if self.compare_item() == None:
+                        self.swap_item()
+                        # Move one index, and pick up ne xt item to compare
+                        self.move_right()
+                        self.swap_item()
+                        break
+
+
+"""
+        PSUEDO CODE------------------------->
+
+        Only used portions, was over complicated. 
+
+
+            while light is Not on at index -1:
+                pick up card()
+                set light on()
+                check right()
+                    if true, move right()
+                        compare items()
+                        if item in hand is smaller:
+                            while item(in hand) is smaller  or equal then item on table and check right is true:
+                                    check right():
+                                    if true:
+                                        move Right()
+                                    else:
+                                        we are at the end of the table,
+                                        check left()
+                                            if true:
+                                                move left one spot
+                                                    check if light is on:
+                                                        if not on:
+                                                            continue left
+                                                        if light on():
+                                                            drop card()
+                                                            move one space to the right()
+                                                            repeat sort()
+                        else: if card is larger in hand:
+                            swap items ()
+                                check move right()
+                                    if yes, move right:
+                                if false:
+                                    we are at the end of the table,
+                                    check left()
+                                            if true:
+                                                move left () one spot
+                                                    check if light is on:
+                                                        if not on:
+                                                            continue left
+                                                        if light on():
+                                                            drop card()
+                                                            move one space to the right()
+                                                            repeat sort()
+
+"""
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65]
+    #  21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1,
+    #      45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
     robot = SortingRobot(l)
 
